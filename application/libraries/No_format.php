@@ -10,7 +10,7 @@ class No_format {
     * __constructor No_format()
     * @param NOTHING
     */
-    function No_format()
+    function __construct()
     {
 		//$this->load->model(array('common_query'));
 		//$this->load->database();

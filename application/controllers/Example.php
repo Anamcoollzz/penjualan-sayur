@@ -11,10 +11,8 @@
 		}
 
 		function index(){
-			$this->is_logged_in();
-			$this->load->model('model_admin','ma');
-			
-			if( ! empty( $this->auth_role ) ) {
+			if( $this->require_min_level(1) ) {
+				$this->load->model('model_admin','ma');
 				$data = array(
 						'site_title' => $this->site_title,
 						'page_title' => 'Dashboard',
@@ -52,9 +50,6 @@
 				);
 				
 				$this->load->view('admin/template/home',$data);
-			}
-			else {
-				redirect('logout');
 			}
 		}
 		

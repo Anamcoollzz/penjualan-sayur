@@ -274,11 +274,11 @@ class Authentication
 					}
 					else
 					{
-						// Setup redirection if redirect required
-						$this->redirect_after_login();
-
 						// Set session cookie and HTTP user data delete_cookie
 						$this->maintain_state( $auth_data );
+
+						// Setup redirection if redirect required
+						$this->redirect_after_login();
 
 						// Send the auth data back to the controller
 						return $auth_data;
@@ -589,7 +589,7 @@ class Authentication
 			// Redirect to specified page, or home page if none provided
 			$redirect = $this->CI->input->get('redirect')
 				? urldecode( $this->CI->input->get('redirect') ) 
-				: '';
+				: config_item('default_login_redirect');
 
 			// Set the redirect protocol
 			$redirect_protocol = USE_SSL ? 'https' : NULL;
@@ -599,7 +599,8 @@ class Authentication
 
 			$url = site_url( $redirect, $redirect_protocol );
 
-			header( "Location: " . $url, TRUE, 302 );
+			session_write_close();
+			redirect( $url );
 		}
 	}
 	
@@ -691,7 +692,7 @@ class Authentication
 		$this->CI->session->set_userdata( 'auth_identifiers', $auth_identifiers );
 
 		// For security, force regenerate the session ID
-		$session_id = $this->CI->session->sess_regenerate( TRUE );
+		$session_id = $this->CI->session->sess_regenerate( (bool) config_item('sess_regenerate_destroy') );
 
 		// Update user record in database
 		$this->CI->{$this->auth_model}->login_update( 

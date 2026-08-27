@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDE & Editor
+.idea/
+.vscode/
+nbproject/private/
+*.sublime-project
+*.sublime-workspace
+
+# CodeIgniter cache & sessions
+/application/cache/*
+!/application/cache/.htaccess
+!/application/cache/index.html
+/application/cache/sessions/*
+!/application/cache/sessions/index.html
+ci_session*
+
+# CodeIgniter logs
+/application/logs/log-*.php
+!/application/logs/index.html

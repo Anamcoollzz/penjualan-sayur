@@ -24,7 +24,7 @@ function auth_constants(){
 | 
 */
 
-	define('USE_SSL', 0);
+	define('USE_SSL', (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 1 : 0);
 
 /*
 | -----------------------------------------------------------------

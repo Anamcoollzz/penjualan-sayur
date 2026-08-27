@@ -26,7 +26,7 @@
     if (isset($css_scripts)) {
         foreach ($css_scripts as $css) {
             ?>
-    	<link href="<?=site_url('assets/'.$css.'.css'); ?>" rel="stylesheet" type="text/css" />
+    	<link href="<?=base_url('assets/'.$css.'.css'); ?>" rel="stylesheet" type="text/css" />
     <?php
 
         } //endforeach

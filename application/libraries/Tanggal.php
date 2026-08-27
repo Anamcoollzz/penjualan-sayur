@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Tanggal {
-function Tanggal()
+function __construct()
 {
 	//$this->load->model(array('common_query'));
 	//$this->load->database();
