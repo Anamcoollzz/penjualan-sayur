@@ -2,6 +2,7 @@
 	if (!defined('BASEPATH'))exit('No direct script access allowed');
 
 	class M_unit extends MY_Controller {
+		private $folder_view = 'admin/master/';
 		private $controller = 'm_unit';
 		private $table = 'm_unit';
 		function __construct() {
@@ -21,8 +22,8 @@
 				$data = array(
 						'site_title' => $this->site_title,
 						'page_title' => 'Daftar Unit',
-						'page' => 'admin/'.$this->controller.'/index',
-						'js_page' => 'admin/'.$this->controller.'/index_js',
+						'page' => $this->folder_view.$this->controller.'/index',
+						'js_page' => $this->folder_view.$this->controller.'/index_js',
 						'js_scripts' => array(
 							'vendors/jquery/dist/jquery.min', /* jQuery */
 							'vendors/bootstrap/dist/js/bootstrap.min', /* Bootstrap */
@@ -79,8 +80,8 @@
 				$data = array(
 						'site_title' => $this->site_title,
 						'page_title' => 'Tambah Unit',
-						'page' => 'admin/'.$this->controller.'/create',
-						'js_page' => 'admin/'.$this->controller.'/js',
+						'page' => $this->folder_view.$this->controller.'/create',
+						'js_page' => $this->folder_view.$this->controller.'/js',
 						'js_scripts' => array(
 							'vendors/jquery/dist/jquery.min', /* jQuery */
 							'vendors/bootstrap/dist/js/bootstrap.min', /* Bootstrap */
@@ -125,8 +126,8 @@
 				$data = array(
 						'site_title' => $this->site_title,
 						'page_title' => 'Ubah Unit',
-						'page' => 'admin/'.$this->controller.'/edit',
-						'js_page' => 'admin/'.$this->controller.'/js',
+						'page' => $this->folder_view.$this->controller.'/edit',
+						'js_page' => $this->folder_view.$this->controller.'/js',
 						'js_scripts' => array(
 							'vendors/jquery/dist/jquery.min', /* jQuery */
 							'vendors/bootstrap/dist/js/bootstrap.min', /* Bootstrap */

@@ -13,11 +13,25 @@
 		function index(){
 			if( $this->require_min_level(1) ) {
 				$this->load->model('model_admin','ma');
+				
+				$stats            = $this->ma->get_summary_counts();
+				$categories       = $this->ma->get_category_distribution();
+				$order_status     = $this->ma->get_order_status_distribution();
+				$recent_orders    = $this->ma->get_recent_orders(5);
+				$recent_purchases = $this->ma->get_recent_purchases(5);
+				$finance          = $this->ma->get_monthly_finance();
+
 				$data = array(
-						'site_title' => $this->site_title,
-						'page_title' => 'Dashboard',
-						'page' => 'admin/dashboard',
-						'js_page' => 'admin/js/default',
+						'site_title'        => $this->site_title,
+						'page_title'        => 'Dashboard',
+						'page'              => 'admin/dashboard',
+						'js_page'           => 'admin/js/default',
+						'stats'             => $stats,
+						'categories'        => $categories,
+						'order_status'      => $order_status,
+						'recent_orders'     => $recent_orders,
+						'recent_purchases'  => $recent_purchases,
+						'finance'           => $finance,
 						'js_scripts' => array(
 							'vendors/jquery/dist/jquery.min', /* jQuery */
 							'vendors/bootstrap/dist/js/bootstrap.min', /* Bootstrap */
