@@ -75,8 +75,8 @@ $db['default'] = array(
 	'hostname' => '127.0.0.1',
 	'username' => 'anammm',
 	'password' => '12345',
-	'database' => 'admin_master',
-	'port' => 3307,
+	'database' => 'db_sayur',
+	'port' => 3306,
 
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
